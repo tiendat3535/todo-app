@@ -1,0 +1,44 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "(./node_modules/.bin/nodemon --inspect --ignore node_modules --exec './node_modules/.bin/eslint index.js && ./node_modules/.bin/babel-node index.js --env=dev') | bunyan",
+    "start-prod": "npm run build && node dist/app.js --env=prod",
+    "eslint": "./node_modules/.bin/eslint .",
+    "build": "./node_modules/.bin/babel . --ignore node_modules,test -d dist",
+    "test": "./node_modules/.bin/jest --env=node src",
+    "coverage": "./node_modules/.bin/jest --env=node --collectCoverageFrom=src/**.js --coverage src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiendat3535/todo-app.git"
+  },
+  "author": "tiendat3535@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiendat3535/todo-app/issues"
+  },
+  "homepage": "https://github.com/tiendat3535/todo-app#readme",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "hapi": "^18.0.1",
+    "uuid": "^3.3.2",
+    "yargs": "^12.0.1",
+    "http-status": "^1.2.0",
+    "js-yaml": "^3.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^23.4.1",
+    "nodemon": "^1.18.2",
+    "sinon": "^6.1.4"
+  }
+}

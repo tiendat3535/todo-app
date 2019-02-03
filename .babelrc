@@ -1,0 +1,9 @@
+{
+    "presets": [
+        ["env", {
+            "module": false
+        }]
+    ],
+    "sourceMaps": true,
+    "retainLines": true
+}
