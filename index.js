@@ -1,4 +1,5 @@
 import Hapi from 'hapi';
+import AuthPlugin from './plugins/auth';
 
 const server = Hapi.server({
     port: 3000,
@@ -15,16 +16,11 @@ server.route({
 });
 
 // Start the server
-async function start() {
-    try {
-        await server.start();
-    } catch (err) {
-        console.log(err);
-        process.exit(1);
-    }
-
+const start = async () => {
+    await server.register([AuthPlugin], {});
+    await server.start();
     console.log('Server running at:', server.info.uri);
-}
+};
 
 process.on('unhandledRejection', (err) => {
     console.log(err);

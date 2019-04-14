@@ -5,5 +5,6 @@
         }]
     ],
     "sourceMaps": true,
-    "retainLines": true
+    "retainLines": true,
+    "plugins": ["babel-plugin-syntax-object-rest-spread"]
 }

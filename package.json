@@ -22,10 +22,15 @@
   },
   "homepage": "https://github.com/tiendat3535/todo-app#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "boom": "^7.3.0",
     "bunyan": "^1.8.12",
     "hapi": "^18.0.1",
+    "hapi-auth-jwt2": "^8.3.0",
     "http-status": "^1.2.0",
+    "joi": "^14.3.1",
     "js-yaml": "^3.12.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql2": "^1.6.5",
     "sequelize": "^5.2.14",
     "uuid": "^3.3.2",
@@ -33,6 +38,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
