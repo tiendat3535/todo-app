@@ -1,23 +1,16 @@
 import Hapi from 'hapi';
 import AuthPlugin from './plugins/auth';
+import TaskPlugin from './plugins/task';
 
 const server = Hapi.server({
     port: 3000,
     host: 'localhost',
-});
-
-// Add the route
-server.route({
-    method: 'GET',
-    path: '/hello',
-    handler() {
-        return 'Hello World!';
-    },
+    debug: { request: ['error'] },
 });
 
 // Start the server
 const start = async () => {
-    await server.register([AuthPlugin], {});
+    await server.register([AuthPlugin, TaskPlugin], {});
     await server.start();
     console.log('Server running at:', server.info.uri);
 };

@@ -1,4 +1,5 @@
 import hapiAuthJwt2 from 'hapi-auth-jwt2';
+import Joi from 'joi';
 import AuthHandler from './authHandler';
 
 module.exports = {
@@ -26,13 +27,29 @@ module.exports = {
                 method: 'POST',
                 path: '/users',
                 handler: AuthHandler.registerUserHandler,
-                config: { auth: false },
+                config: {
+                    validate: {
+                        payload: {
+                            username: Joi.string().min(6).max(20).required(),
+                            password: Joi.string().min(6).max(200).required(),
+                        },
+                    },
+                    auth: false,
+                },
             },
             {
                 method: 'POST',
                 path: '/accessTokens',
                 handler: AuthHandler.logInHandler,
-                config: { auth: false },
+                config: {
+                    validate: {
+                        payload: {
+                            username: Joi.string().min(6).max(20).required(),
+                            password: Joi.string().min(6).max(200).required(),
+                        },
+                    },
+                    auth: false,
+                },
             },
         ]);
     },
