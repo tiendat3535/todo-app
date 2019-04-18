@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "(./node_modules/.bin/nodemon --inspect --ignore node_modules --exec 'npm run eslint && ./node_modules/.bin/babel-node index.js --env=dev') | bunyan",
-    "start-prod": "npm run build && node dist/app.js --env=prod",
+    "start-prod": "node index.js --env=prod",
     "eslint": "./node_modules/.bin/eslint .",
     "build": "./node_modules/.bin/babel . --ignore node_modules,test -d dist",
     "test": "./node_modules/.bin/jest --env=node src",
