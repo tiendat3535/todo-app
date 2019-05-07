@@ -2,7 +2,9 @@
 import httpStatus from 'http-status';
 import models from '../../models';
 
-exports.getTaskHandler = () => ({});
+exports.getTaskHandler = ({ auth: { credentials: { id } } }) => models.sequelize.transaction(
+    () => models.Task.findAll({ where: { userId: id } }),
+);
 
 exports.createTaskHandler = async ({ auth: { credentials }, payload: task }) => models.sequelize.transaction(
     () => models.Task.create({ ...task, userId: credentials.id }),
